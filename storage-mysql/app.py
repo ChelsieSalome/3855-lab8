@@ -153,7 +153,7 @@ def process_messages():
         consumer = KafkaConsumer(
             KAFKA_TOPIC,
             bootstrap_servers=KAFKA_SERVER,
-            group_id='event_group',
+            group_id='storage_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))

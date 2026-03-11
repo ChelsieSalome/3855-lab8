@@ -28,6 +28,7 @@ def get_performance_event(index):
         consumer = KafkaConsumer(
             CONFIG['kafka']['topic'],
             bootstrap_servers=f"{CONFIG['kafka']['hostname']}:{CONFIG['kafka']['port']}",
+            group_id='analyzer_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
             consumer_timeout_ms=1000,
@@ -69,6 +70,7 @@ def get_error_event(index):
         consumer = KafkaConsumer(
             CONFIG['kafka']['topic'],
             bootstrap_servers=f"{CONFIG['kafka']['hostname']}:{CONFIG['kafka']['port']}",
+            group_id='analyzer_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
             consumer_timeout_ms=1000,
@@ -110,6 +112,7 @@ def get_stats():
         consumer = KafkaConsumer(
             CONFIG['kafka']['topic'],
             bootstrap_servers=f"{CONFIG['kafka']['hostname']}:{CONFIG['kafka']['port']}",
+            group_id='analyzer_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
             consumer_timeout_ms=1000,

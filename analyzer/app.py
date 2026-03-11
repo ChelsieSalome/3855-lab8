@@ -34,7 +34,7 @@ def get_performance_event(index):
             consumer_timeout_ms=1000,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
-        consumer.poll(timeout_ms=0)
+        consumer.poll(timeout_ms=1000)
         consumer.seek_to_beginning()
         # Track counts for performance events
         performance_count = 0
@@ -77,7 +77,7 @@ def get_error_event(index):
             consumer_timeout_ms=1000,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
-        consumer.poll(timeout_ms=0)
+        consumer.poll(timeout_ms=1000)
         consumer.seek_to_beginning() 
         # Track counts for error events
         error_count = 0
@@ -120,8 +120,8 @@ def get_stats():
             consumer_timeout_ms=1000,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
-        
-        consumer.poll(timeout_ms=0)
+
+        consumer.poll(timeout_ms=1000)
         consumer.seek_to_beginning()
         # Initialize counts
         performance_count = 0

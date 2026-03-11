@@ -31,7 +31,7 @@ def get_performance_event(index):
             group_id='analyzer_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
-            consumer_timeout_ms=1000,
+            consumer_timeout_ms=10000,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
         
@@ -73,7 +73,7 @@ def get_error_event(index):
             group_id='analyzer_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
-            consumer_timeout_ms=1000,
+            consumer_timeout_ms=10000,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
         
@@ -115,7 +115,7 @@ def get_stats():
             group_id='analyzer_group',
             auto_offset_reset='earliest',
             enable_auto_commit=False,
-            consumer_timeout_ms=1000,
+            consumer_timeout_ms=10000,
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
         
